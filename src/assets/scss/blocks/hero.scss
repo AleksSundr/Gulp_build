@@ -1,0 +1,43 @@
+.hero {
+    display: grid;
+    //height : calc(250px + 25vmin);
+    margin: 0 -2rem;
+
+    background-color: lightblue;
+
+    >* {
+        grid-area: 1/-1;
+    }
+
+    img {
+        width     : 100%;
+        height    : calc(100vh - $header-height);
+        min-height: 0;
+        object-fit: cover;
+    }
+
+    // &:after {
+    //   content: "";
+    //   background-color: #000;
+    //   opacity: 0.5;
+    //   grid-area: 1/-1;
+    // }
+}
+
+.hero__content {
+    z-index        : 1;
+    display        : flex;
+    flex-direction : column;
+    justify-content: center;
+    align-items    : center;
+    text-align     : center;
+
+    >* {
+        color        : #fff;
+        margin-bottom: 1rem;
+    }
+
+    h2 {
+        @include font(2rem, 700);
+    }
+}

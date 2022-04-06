@@ -1,0 +1,66 @@
+.burger {
+    display: none;
+    width  : 3rem;
+    height : 2rem;
+    //padding: 0;
+
+    background: none;
+
+    //font-size: 0;
+    //color    : transparent;
+
+    @include abs(top 50% right 1.5rem);
+    transform: translateY(-50%);
+
+    &:before,
+    &:after,
+    span {
+        @include pseudo;
+        //left    : 0;
+
+        width  : 100%;
+        height : 0.2rem;
+
+        border-top: solid white;
+        background: $white;
+
+        transition: transform .2s linear;
+    }
+
+    &:before {
+        top: 0;
+    }
+
+    &:after {
+        bottom: 0;
+    }
+
+    span {
+        top      : 50%;
+        transform: translateY(-50%);
+
+        transition: opacity .2s linear;
+    }
+
+    .show-sidebar & {
+        span {
+            opacity: 0;
+        }
+
+        &:before {
+            top: 50%;
+            transform:
+                rotate(45deg);
+        }
+
+        &:after {
+            top: 50%;
+            transform:
+                rotate(-45deg);
+        }
+    }
+
+    @include breakpoint($tablet) {
+        display: block;
+    }
+}

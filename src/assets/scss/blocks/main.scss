@@ -1,0 +1,7 @@
+.main {
+    padding: $header-height 2rem 0;
+
+    @include breakpoint($tablet) {
+        padding: $header-height 0 5rem;
+    }
+}

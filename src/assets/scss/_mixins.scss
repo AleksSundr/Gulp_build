@@ -1,0 +1,79 @@
+/* Media queries */
+@mixin breakpoint($bp) {
+
+    @media(max-width: $bp) {
+        @content;
+    }
+}
+
+/* Positioning */
+@mixin pos0($top-or-bottom, $left-or-right, $pos: absolute) {
+    #{$top-or-bottom}: 0px;
+    #{$left-or-right}: 0px;
+    position         : $pos;
+}
+
+@mixin pos($type, $args) {
+    position: $type;
+    $offsets: top right bottom left;
+
+    @each $o in $offsets {
+        $i: index($args, $o);
+
+        @if $i and $i+1 <=length($args) and type-of(nth($args, $i + 1))==number {
+            #{$o}: nth($args, $i + 1);
+        }
+    }
+}
+
+@mixin abs($args) {
+    @include pos(absolute, $args);
+}
+@mixin rel($args) {
+    @include pos(relative, $args);
+}
+@mixin fix($args) {
+    @include pos(fixed, $args);
+}
+@mixin sticky($args) {
+    @include pos(sticky, $args);
+}
+
+/* Pseudo elements */
+@mixin pseudo($content: '', $display: block, $pos: absolute) {
+    content : $content;
+    display : $display;
+    position: $pos;
+}
+
+/* Short text */
+@mixin truncate() {
+    white-space  : nowrap;
+    overflow     : hidden;
+    text-overflow: ellipsis;
+}
+
+/* bg-img position*/
+/* use: @include cover-bg-img("../image/main.png") */
+@mixin cover-bg-img ($image-src) {
+    background-image: url($image-src);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+/* Font-size */
+@mixin font($size: null, $f-weight: null, $l-height: null) {
+    font-size: $size;
+    font-weight: $f-weight;
+    line-height: $l-height;
+}
+
+
+
+
+//@mixin flex($flex, $center, $upper) {
+//    display: $flex;
+//    align-items: $center;
+//    text-transform: $upper;
+//}

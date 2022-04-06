@@ -1,0 +1,31 @@
+
+.header {
+    display: grid;
+    width: 100%;
+    height: $header-height;
+    grid-template-columns: auto 8fr 2fr;
+    column-gap: 1rem;
+    align-items: center;
+
+    background-color: #0d0d0d;
+    box-shadow: 0px 5px 22px rgba($black, 0.25);
+
+    @include fix(top 0 left 0);
+    z-index : $z-index-header;
+
+    @include breakpoint($tablet) {
+        width: 100%;
+    }
+}
+
+.header__logo img {
+    height: $header-height;
+}
+
+.header .nav {
+    justify-self: center;
+}
+
+.header__right {
+    justify-self: center;
+}

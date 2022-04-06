@@ -1,0 +1,48 @@
+@import "vars";
+@import "mixins";
+@import "vendor/normalize.scss";
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    background-color: lightskyblue;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1.6rem;
+    color: $white;
+
+    &.no-scroll {
+        overflow: hidden;
+    }
+
+    @include breakpoint($tablet) {
+        &.show-sidebar {
+            overflow: hidden;
+        }
+    }
+}
+
+//a {
+//    text-decoration: none;
+
+//    &:hover {
+//        text-decoration: underline;
+//    }
+//}
+
+
+/* Blocks */
+@import "blocks/page";
+@import "blocks/main";
+@import "blocks/container";
+@import "blocks/header";
+@import "blocks/nav";
+@import "blocks/subnav";
+@import "blocks/hero";
+@import "blocks/btn";
+@import "blocks/burger";
+
+@import "blocks/form";
+@import "blocks/social";
+
